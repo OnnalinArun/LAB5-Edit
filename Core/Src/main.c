@@ -517,13 +517,13 @@ void encoderSpeedReaderCycle() {
 }
 uint64_t micros()
 {
-	return _micros + htim2.Instance->CNT; // counter of Time11
+	return _micros + htim11.Instance->CNT; // counter of Time11
 }
 
 //interrupt
 void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
 {
-	if (htim == &htim2)
+	if (htim == &htim11)
 	{
 		_micros += 4294967295;
 	}
